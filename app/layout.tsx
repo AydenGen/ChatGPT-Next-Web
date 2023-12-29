@@ -4,6 +4,10 @@ import "./styles/markdown.scss";
 import "./styles/highlight.scss";
 import { getClientConfig } from "./config/client";
 import { type Metadata } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { getServerSideConfig } from "./config/server";
+
+const serverConfig = getServerSideConfig();
 
 export const metadata: Metadata = {
   title: "NextChat",
@@ -36,7 +40,14 @@ export default function RootLayout({
         <script src="/serviceWorkerRegister.js" defer></script>
         <script async src="https://umami.aydengen.com/umami" data-website-id="66aaf241-230e-45e4-a560-7ae9cd6cafb4"></script>
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        {serverConfig?.isVercel && (
+          <>
+            <SpeedInsights />
+          </>
+        )}
+      </body>
     </html>
   );
 }
