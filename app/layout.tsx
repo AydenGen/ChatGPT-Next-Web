@@ -38,7 +38,11 @@ export default function RootLayout({
         <meta name="config" content={JSON.stringify(getClientConfig())} />
         <link rel="manifest" href="/site.webmanifest"></link>
         <script src="/serviceWorkerRegister.js" defer></script>
-        <script async src="https://umami.aydengen.com/umami" data-website-id="66aaf241-230e-45e4-a560-7ae9cd6cafb4"></script>
+        <script
+          async
+          src="https://amami.zeabur.app/umami"
+          data-website-id="f52e050b-b128-4b6b-b1a5-b33a03beab39"
+        ></script>
       </head>
       <body>
         {children}
